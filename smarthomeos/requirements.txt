@@ -1,0 +1,44 @@
+# SmartHomeOS 依赖包
+
+# 核心依赖
+python>=3.12
+pip>=24.0
+
+# AI 相关
+langchain>=0.1.30
+langchain-community>=0.0.48
+langchain-core>=0.1.43
+tensorflow>=2.15.0
+pytorch>=2.2.0
+transformers>=4.38.0
+whisper>=1.0.0
+
+# 智能家居
+homeassistant>=2025.12.0
+hass-client>=0.9.0
+
+# 数据存储
+pymongo>=4.6.0
+redis>=5.0.0
+
+# 网络和通信
+requests>=2.31.0
+websocket-client>=1.7.0
+aiohttp>=3.9.0
+
+# 多媒体
+opencv-python>=4.9.0
+Pillow>=10.0.0
+
+# 系统工具
+psutil>=5.9.0
+pyyaml>=6.0
+
+# 测试
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# 开发工具
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0

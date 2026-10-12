@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操作系统与 AI 操作系统智能体团队</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div class="logo">操作系统智能体团队 <span class="sub">OpenOS / AI OS · 自主可控 · 反捆绑</span></div>
+  <nav>
+    <button class="tab active" data-view="kernel">内核工程</button>
+    <button class="tab" data-view="build">构建裁剪</button>
+    <button class="tab" data-view="aios">AI 操作系统</button>
+    <button class="tab" data-view="freedom">反捆绑自主选择</button>
+    <button class="tab" data-view="pl">流水线</button>
+    <button class="tab" data-view="sys">系统</button>
+  </nav>
+</header>
+
+<main>
+  <!-- 内核工程 -->
+  <section id="view-kernel" class="view active">
+    <div class="panel">
+      <h3>内核架构设计</h3>
+      <label>目标架构 <select id="kernelArch"><option>riscv64</option><option>loongarch64</option><option>arm64</option><option>x86_64</option></select></label>
+      <button onclick="kArch()">生成内核架构蓝图</button>
+      <button class="ghost" onclick="kSched()">调度策略设计</button>
+      <button class="ghost" onclick="kMem()">内存管理设计</button>
+      <button class="ghost" onclick="kFs()">文件系统设计</button>
+      <button class="ghost" onclick="kDrv()">驱动框架设计</button>
+      <pre id="kResult" class="result hidden"></pre>
+    </div>
+    <div class="panel">
+      <h3>内核工程能力说明</h3>
+      <div class="card"><b>kernel_engineer</b><div class="hint">内核架构、进程/调度、内存管理、文件系统、驱动框架设计，输出 JSON 契约</div></div>
+    </div>
+  </section>
+
+  <!-- 构建裁剪 -->
+  <section id="view-build" class="view">
+    <div class="panel">
+      <h3>系统构建与裁剪</h3>
+      <label>目标场景 <select id="buildProfile"><option value="desktop">桌面</option><option value="server">服务器</option><option value="mobile">移动</option><option value="embedded">嵌入式</option></select></label>
+      <button onclick="bProfile()">生成构建方案</button>
+      <button class="ghost" onclick="bKconfig()">内核配置建议</button>
+      <pre id="bResult" class="result hidden"></pre>
+    </div>
+    <div class="panel">
+      <h3>构建裁剪能力说明</h3>
+      <div class="card"><b>system_builder</b><div class="hint">按场景裁剪组件、生成构建流水线与内核配置建议</div></div>
+    </div>
+  </section>
+
+  <!-- AI 操作系统 -->
+  <section id="view-aios" class="view">
+    <div class="panel">
+      <h3>AI 操作系统设计</h3>
+      <button onclick="aFw()">系统级智能体框架</button>
+      <button class="ghost" onclick="aInter()">AI 原生交互设计</button>
+      <button class="ghost" onclick="aSched()">智能资源调度</button>
+      <pre id="aResult" class="result hidden"></pre>
+    </div>
+    <div class="panel">
+      <h3>AI OS 能力说明</h3>
+      <div class="card"><b>ai_os</b><div class="hint">系统级智能体、AI 原生交互、智能资源调度，本地优先 + 隐私边界</div></div>
+    </div>
+  </section>
+
+  <!-- 反捆绑 -->
+  <section id="view-freedom" class="view">
+    <div class="panel">
+      <h3>反捆绑与用户自主选择</h3>
+      <button onclick="fStore()">去中心化应用商店</button>
+      <button class="ghost" onclick="fPre()">零预装治理</button>
+      <button class="ghost" onclick="fCombo()">软硬件自由组合</button>
+      <pre id="fResult" class="result hidden"></pre>
+    </div>
+    <div class="panel">
+      <h3>反捆绑能力说明</h3>
+      <div class="card"><b>freedom</b><div class="hint">去中心化商店、无强制预装、一键清理、软硬件自由组合方案</div></div>
+    </div>
+  </section>
+
+  <!-- 流水线 -->
+  <section id="view-pl" class="view">
+    <div class="panel">
+      <h3>多智能体流水线编排</h3>
+      <label>目标描述 <input id="plGoal" placeholder="如：设计自主 OS 内核、构建裁剪并规划 AI 系统与反捆绑策略"></label>
+      <button onclick="plRun()">运行流水线</button>
+      <pre id="plResult" class="result hidden"></pre>
+    </div>
+  </section>
+
+  <!-- 系统 -->
+  <section id="view-sys" class="view">
+    <div class="panel"><h3>系统健康</h3><pre id="sysHealth" class="result"></pre></div>
+    <div class="panel"><h3>智能体列表</h3><div id="sysCards" class="cards"></div></div>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
